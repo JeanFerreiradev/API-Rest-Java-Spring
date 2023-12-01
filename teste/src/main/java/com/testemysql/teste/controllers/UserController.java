@@ -42,8 +42,8 @@ public class UserController {
 		return ResponseEntity.status(HttpStatus.CREATED).body(result);
 	}
 
-	@DeleteMapping
-	public ResponseEntity<User> excluirUsuario(Long id) {
+	@DeleteMapping(value = "/{id}")
+	public ResponseEntity<User> excluirUsuario(@PathVariable Long id) {
 		service.excluirUsuario(id);
 		return ResponseEntity.noContent().build();
 	}
